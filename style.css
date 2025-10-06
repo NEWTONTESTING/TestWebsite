@@ -1,0 +1,125 @@
+/* button */
+/* Style both <button> and <a class="btn"> */
+.btn, .btn:link, .btn:visited {
+  position: absolute;         /* take out of normal flow */
+  top: -5%;                   /* adjust this to move vertically */
+  left: 50%;                  /* keep centered horizontally */
+  transform: translate(-50%, 0);
+
+  display: inline-block;
+  padding: 20px 40px;
+  background-color: #141414;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;   /* removes underline */
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 
+    0 8px 0 #141414, 
+    0 25px 20px rgba(0,0,0,0.5);
+
+
+  /* removed transform from transitions */
+  transition: box-shadow 0.2s ease, background-color 0.2s ease;
+  z-index: 20;
+}
+
+/* Hover effect (only glow/shadow/color, no movement) */
+.btn:hover {
+  background-color: #2a2a2a;
+  box-shadow: 
+    0 4px 0 #999, 
+    0 15px 15\2px rgba(0,0,0,0.4);
+}
+
+/* Active effect (pressed look, still no movement) */
+.btn:active {
+  background-color: #1a1a1a;
+  color: #ccc;
+  font-weight: bold;
+  box-shadow: 
+    0 2px 0 #888, 
+    0 8px 10px rgba(0,0,0,0.4);
+}
+
+
+.btn:active {
+  cursor: grabbing;
+}
+
+.btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/* glow */
+.btn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #0066ff, #c8efff, #03e2ff, #0044ff,
+    #00FFD5, #002BFF, #4879d4, #070070
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height:  calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {background-position: 0 0;}
+  50% {background-position: 400% 0;}
+  100% {background-position: 0 0;}
+}
+
+/* hover */
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active:after {
+  background: transparent;
+}
+
+.btn:active {
+  color: #000;
+  font-weight: bold;
+}
+
+/* Style both <button> and <a class="btn"> */
+.btn, .btn:link, .btn:visited {
+  display: inline-block;
+  padding: 20px 40px;
+  background-color: #202020;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;   /* removes underline */
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 
+    0 8px 0 #202020, 
+    0 25px 20px rgba(0,0,0,0.5);
+  z-index: 20;
+}
+

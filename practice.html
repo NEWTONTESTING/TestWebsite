@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice - BeyondWords</title>
+  <link rel="stylesheet" href="styleindex.css">
+</head>
+<body style="background-color: #141414; margin:0;">
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="demo.html" class="navbar-brand">
+          <img src="logo.png" alt="Logo" class="navbar-logo">
+          <span class="beyondwords">BeyondWords</span>
+        </a>
+      </div>
+    </nav>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="alphabet.html">Alphabet</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="practice.html" class="active">Practice</a>
+    </nav>
+  </header>
+
+  <!-- Empty main section (just background) -->
+  <main></main>
+
+  <!-- JS keeps nav scroll blur effect -->
+  <script>
+    window.addEventListener("scroll", function() {
+      const header = document.querySelector("header");
+      if (window.scrollY > 20) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+</body>
+</html>
